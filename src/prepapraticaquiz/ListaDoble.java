@@ -91,7 +91,7 @@ public class ListaDoble {
         String out="[";
         Nodo aux=pFirst;
         
-        while (aux!=pLast){
+        while (aux!=null){
             if (aux == pLast){
                 out+= ""+pLast.data;
                 
