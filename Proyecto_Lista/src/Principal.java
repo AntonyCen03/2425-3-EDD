@@ -30,11 +30,6 @@ public class Principal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jDialog1 = new javax.swing.JDialog();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        CerrarDialogo = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         ZonaDespliegue = new javax.swing.JTextArea();
@@ -44,47 +39,7 @@ public class Principal extends javax.swing.JFrame {
         Salir = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane2.setViewportView(jTextArea1);
-
-        CerrarDialogo.setText("Cerrar");
-        CerrarDialogo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CerrarDialogoActionPerformed(evt);
-            }
-        });
-
-        jLabel3.setText("La lista tiene las siguientes elemento");
-
-        javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
-        jDialog1.getContentPane().setLayout(jDialog1Layout);
-        jDialog1Layout.setHorizontalGroup(
-            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDialog1Layout.createSequentialGroup()
-                .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jDialog1Layout.createSequentialGroup()
-                            .addGap(160, 160, 160)
-                            .addComponent(CerrarDialogo, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jDialog1Layout.createSequentialGroup()
-                            .addGap(82, 82, 82)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(84, Short.MAX_VALUE))
-        );
-        jDialog1Layout.setVerticalGroup(
-            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDialog1Layout.createSequentialGroup()
-                .addGap(42, 42, 42)
-                .addComponent(jLabel3)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
-                .addComponent(CerrarDialogo)
-                .addContainerGap(77, Short.MAX_VALUE))
-        );
+        reset = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -114,6 +69,11 @@ public class Principal extends javax.swing.JFrame {
         jPanel1.add(Imprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 120, -1));
 
         Eliminar.setText("Eliminar Nodo");
+        Eliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EliminarActionPerformed(evt);
+            }
+        });
         jPanel1.add(Eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 120, -1));
 
         Salir.setText("Salir");
@@ -122,7 +82,7 @@ public class Principal extends javax.swing.JFrame {
                 SalirActionPerformed(evt);
             }
         });
-        jPanel1.add(Salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 230, -1, -1));
+        jPanel1.add(Salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 230, -1, -1));
 
         jLabel1.setText("Operaciones");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 100, 20));
@@ -130,26 +90,38 @@ public class Principal extends javax.swing.JFrame {
         jLabel2.setText("Caracteristica:");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 90, 100, -1));
 
+        reset.setText("Reset");
+        reset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                resetActionPerformed(evt);
+            }
+        });
+        jPanel1.add(reset, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 230, -1, -1));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 300));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void NuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NuevoActionPerformed
-        // TODO add your handling code here:
-        String respuesta=JOptionPane.showInputDialog(this,"Introduzca un valor:");
-        this.L.Insertar(Integer.parseInt(respuesta),this.L.Final());
+        try{
+           String respuesta=JOptionPane.showInputDialog(this,"Introduzca un valor:");
+           this.L.Insertar(Integer.parseInt(respuesta),this.L.Final()); 
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        }
+        
     }//GEN-LAST:event_NuevoActionPerformed
 
     private void ImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ImprimirActionPerformed
-        // TODO add your handling code here:
-        String repuesta=this.L.Recorrer();
-        this.jTextArea1.setText(repuesta);
-        this.jDialog1.setSize(400, 300);
-        this.setResizable(false);
-        this.jDialog1.setVisible(true);
-        this.ZonaDespliegue.setText(repuesta);
-        this.setLocationRelativeTo(null);
+        try{
+            this.ZonaDespliegue.setText("");
+            String repuesta=this.L.Recorrer();
+            this.ZonaDespliegue.setText(repuesta);           
+        }catch(Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        
         
     }//GEN-LAST:event_ImprimirActionPerformed
 
@@ -158,10 +130,44 @@ public class Principal extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_SalirActionPerformed
 
-    private void CerrarDialogoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CerrarDialogoActionPerformed
-        // TODO add your handling code here:
-        //this.setVisible(false);
-    }//GEN-LAST:event_CerrarDialogoActionPerformed
+    private void EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarActionPerformed
+        try {
+        // Obtener valor desde un JTextField (ej. txtValor)
+        String input =JOptionPane.showInputDialog(this,"Introduzca un valor:"); 
+        if (input.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Ingrese un valor.");
+            return;
+        }
+
+        // Convertir al tipo correcto (ej. Integer)
+        Integer valor = Integer.parseInt(input);
+
+        // Buscar el nodo a eliminar
+        Nodo<Integer> nodoAEliminar = L.Buscar(valor);
+
+        if (nodoAEliminar == null) {
+            JOptionPane.showMessageDialog(null, "El valor no existe en la lista.");
+            return;
+        }
+
+        // Eliminar el nodo
+        L.Eliminar(nodoAEliminar);
+
+        // Actualizar la interfaz o mostrar mensaje
+        JOptionPane.showMessageDialog(null, "Elemento eliminado.");
+    } catch (NumberFormatException e) {
+        JOptionPane.showMessageDialog(null, "Ingrese un número válido.");
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());
+    }
+    }//GEN-LAST:event_EliminarActionPerformed
+
+    private void resetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetActionPerformed
+        L.empty();
+        if (L.EsVacio()) {
+            JOptionPane.showMessageDialog(null, "Ya se vacio la lista");
+        }
+    }//GEN-LAST:event_resetActionPerformed
 
     /**
      * @param args the command line arguments
@@ -202,19 +208,15 @@ public class Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton CerrarDialogo;
     private javax.swing.JButton Eliminar;
     private javax.swing.JButton Imprimir;
     private javax.swing.JButton Nuevo;
     private javax.swing.JButton Salir;
     private javax.swing.JTextArea ZonaDespliegue;
-    private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JButton reset;
     // End of variables declaration//GEN-END:variables
 }

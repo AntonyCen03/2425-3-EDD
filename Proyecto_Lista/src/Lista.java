@@ -51,16 +51,15 @@ public class Lista <T> {
         Nodo <T> pNew=new Nodo <>(x);
         if (this.EsVacio()) {
             this.pFirst=pNew;
-            this.iN++; 
+             
         }else{
             if (pValor!= this.Ultimo()) {
                 pNew.pNext=pValor;
                 pValor.pNext=pNew;
-                this.iN++;
                 
             }
         }
-        
+        this.iN++;
     }
     
     public Nodo<T> Final(){
@@ -76,7 +75,7 @@ public class Lista <T> {
         }
     }
     public String Recorrer(){
-        Nodo<T> pAux;
+        Nodo<T> pAux ;
         String resultado="";
         if (this.EsVacio()) {
             return "La lista esta vacia";
@@ -89,4 +88,39 @@ public class Lista <T> {
         }
         return resultado;
     }
+    
+    public void Eliminar(Nodo<T> pValor) {
+        Nodo<T> p=null;
+        if (pValor==pFirst) {
+            pValor=pFirst;
+            pFirst=pValor.pNext;
+            
+        }else{
+            pValor=this.Primero();
+            if (p.pNext!=pValor) {
+                p=Proximo(p);
+                
+            }
+            p.pNext=pValor.pNext;
+        }
+        pValor=null;
+        iN--;
+    }
+    
+    public Nodo<T> Buscar(T valor) {
+    Nodo<T> actual = pFirst;
+    while (actual != null) {
+        if (actual.data.equals(valor)) {
+            return actual;
+        }
+        actual = actual.pNext;
+    }
+    return null;
+}
+    public void empty(){
+        this.name="";
+        this.pFirst=null;
+        this.iN=0;
+    }
+    
 }
