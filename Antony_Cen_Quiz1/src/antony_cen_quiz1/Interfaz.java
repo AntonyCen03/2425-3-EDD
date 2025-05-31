@@ -65,7 +65,7 @@ public class Interfaz extends javax.swing.JFrame {
                 add1ActionPerformed(evt);
             }
         });
-        jPanel1.add(add1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 110, -1));
+        jPanel1.add(add1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 113, 110, 30));
 
         add2.setText("Agregar L2");
         add2.addActionListener(new java.awt.event.ActionListener() {
@@ -73,10 +73,10 @@ public class Interfaz extends javax.swing.JFrame {
                 add2ActionPerformed(evt);
             }
         });
-        jPanel1.add(add2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 110, -1, -1));
+        jPanel1.add(add2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 110, 100, 30));
         jPanel1.add(InputL1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 110, -1));
-        jPanel1.add(InputL2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 160, 110, -1));
-        jPanel1.add(Igual, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 210, 130, -1));
+        jPanel1.add(InputL2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 153, 110, 30));
+        jPanel1.add(Igual, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 230, 150, 30));
 
         Comparar.setText("Comparar");
         Comparar.addActionListener(new java.awt.event.ActionListener() {
@@ -84,7 +84,7 @@ public class Interfaz extends javax.swing.JFrame {
                 CompararActionPerformed(evt);
             }
         });
-        jPanel1.add(Comparar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 240, -1, -1));
+        jPanel1.add(Comparar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 200, -1, -1));
 
         Rest.setText("Reset");
         Rest.addActionListener(new java.awt.event.ActionListener() {
