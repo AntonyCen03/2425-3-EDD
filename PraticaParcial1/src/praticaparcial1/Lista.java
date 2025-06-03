@@ -23,6 +23,14 @@ public class Lista {
         return pFirst==null;
     }
     
+    public Object leer(Nodo pValor){
+        return pValor.getData();
+    }
+    
+    public Nodo Primero(){
+        return this.pFirst;
+    }
+    
     public void Vaciar(){
         if (!isEmpty()) {
             pFirst=pLast=null;
@@ -50,7 +58,7 @@ public class Lista {
     
     public void pop(){
         if (!isEmpty()) {
-            
+            System.out.println("La lista esta vacia"); 
         }else if (pFirst==pLast) {
             this.Vaciar();
         }else{
@@ -80,4 +88,27 @@ public class Lista {
         }
         return texto;
     }
+    
+    public void invertir() {
+    if (isEmpty() || pFirst == pLast) {
+        return; // No hay nada que invertir si está vacía o tiene 1 elemento
+    }
+    
+    Nodo previo = null;
+    Nodo actual = pFirst;
+    Nodo siguiente = null;
+    
+    pLast = pFirst; // El último nodo será el primero actual
+    
+    while (actual != null) {
+        siguiente = actual.getpNext(); // Guardar el siguiente nodo
+        actual.setpNext(previo);      // Invertir el enlace del nodo actual
+        previo = actual;              // Mover previo al nodo actual
+        actual = siguiente;           // Mover actual al siguiente nodo
+    }
+    
+    pFirst = previo; // El último nodo procesado será el nuevo primero
+}
+    
+    
 }

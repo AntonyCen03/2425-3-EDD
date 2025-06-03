@@ -24,6 +24,11 @@ public class PraticaParcial1 {
         lista.Append(2);
         lista.Append(3);
         lista.Append(5);
+        //lista.DeletepFirst();
+        lista.invertir();
+        System.out.println(lista.Recorrer());
+        
+        
         
         Lista lista2=new Lista();
         lista2.Append(2);

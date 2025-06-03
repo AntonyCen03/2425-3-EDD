@@ -47,6 +47,7 @@ public class Ventana extends javax.swing.JFrame {
         l2 = new javax.swing.JTextField();
         l1 = new javax.swing.JTextField();
         rest = new javax.swing.JButton();
+        InvertirL = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -120,6 +121,14 @@ public class Ventana extends javax.swing.JFrame {
             }
         });
         jPanel1.add(rest, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 250, -1, -1));
+
+        InvertirL.setText("Invertir L");
+        InvertirL.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                InvertirLActionPerformed(evt);
+            }
+        });
+        jPanel1.add(InvertirL, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 150, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 300));
 
@@ -195,6 +204,19 @@ public class Ventana extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_restActionPerformed
 
+    private void InvertirLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InvertirLActionPerformed
+        try{
+            if (!list1.isEmpty() || !list2.isEmpty()){
+                this.list1.invertir();
+                this.list2.invertir();
+                this.l1.setText(list1.Recorrer());
+                this.l2.setText(list2.Recorrer());
+            }
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }//GEN-LAST:event_InvertirLActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -235,6 +257,7 @@ public class Ventana extends javax.swing.JFrame {
     private javax.swing.JButton Add2;
     private javax.swing.JButton Encontrar1;
     private javax.swing.JButton Encontrar2;
+    private javax.swing.JButton InvertirL;
     private javax.swing.JTextField Resultado;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
